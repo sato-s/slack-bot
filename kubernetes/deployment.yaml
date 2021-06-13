@@ -95,6 +95,26 @@ metadata:
         f:annotations:
           .: {}
           f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
         f:observedGeneration: {}
         f:readyReplicas: {}
         f:replicas: {}
@@ -142,7 +162,7 @@ spec:
         name: slack-bot-1
         resources:
           limits:
-            cpu: 50m
+            cpu: 10m
             memory: 20Mi
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
@@ -151,3 +171,23 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-06-13T17:14:57Z"
+    lastUpdateTime: "2021-06-13T17:14:57Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-06-13T17:14:50Z"
+    lastUpdateTime: "2021-06-13T17:24:54Z"
+    message: ReplicaSet "slack-bot-6cf778bc45" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
+
