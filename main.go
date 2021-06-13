@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/shomali11/slacker"
+	"github.com/slack-go/slack"
 )
 
 func main() {
@@ -14,6 +15,12 @@ func main() {
 	definition := &slacker.CommandDefinition{
 		Handler: func(botCtx slacker.BotContext, request slacker.Request, response slacker.ResponseWriter) {
 			response.Reply("@satos pongaaaa24")
+			client := botCtx.Client()
+			ev := botCtx.Event()
+			if ev.Channel != "" {
+				client.PostMessage(ev.Channel, slack.MsgOptionText("@satos saaas", false))
+				client.PostMessage(ev.Channel, slack.MsgOptionText("/who", false))
+			}
 		},
 	}
 
