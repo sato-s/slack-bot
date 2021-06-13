@@ -13,7 +13,7 @@ func main() {
 
 	definition := &slacker.CommandDefinition{
 		Handler: func(botCtx slacker.BotContext, request slacker.Request, response slacker.ResponseWriter) {
-			response.Reply("@satos pongaaaa23")
+			response.Reply("@satos pongaaaa24")
 		},
 	}
 
